@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沉夢體驗工作室 | Deep Dream Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: radial-gradient(circle at 50% 100%, #0a0a20 0%, #000 100%);
+      color: #eaeaea;
+      line-height: 1.8;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(0,0,20,0.7), rgba(10,0,30,0.8)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0,0,30,0.3), rgba(0,0,0,0.1));
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5em;
+      letter-spacing: 3px;
+      color: #bfb8ff;
+      z-index: 2;
+      margin: 0 20px;
+    }
+
+    header p {
+      max-width: 650px;
+      font-size: 1.1em;
+      margin: 20px;
+      color: #ccc;
+      z-index: 2;
+    }
+
+    .section {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .services {
+      background: linear-gradient(180deg, rgba(10,10,30,0.9), rgba(0,0,0,1));
+      backdrop-filter: blur(4px);
+    }
+
+    .services h2 {
+      font-size: 2em;
+      color: #a090ff;
+      margin-bottom: 40px;
+    }
+
+    .service-item {
+      margin: 20px auto;
+      max-width: 700px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(150,130,255,0.15);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(160,140,255,0.35);
+    }
+
+    .service-item h3 {
+      color: #c2b8ff;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      background: linear-gradient(180deg, #090909 0%, #000 100%);
+    }
+
+    .contact h2 {
+      color: #b0a0ff;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      background: #050505;
+      color: #777;
+    }
+
+    /* 星點背景 */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      background: transparent;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 5s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* RWD 響應式設計 */
+    @media (max-width: 1024px) {
+      header h1 {
+        font-size: 3em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .section {
+        padding: 60px 8%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        background-attachment: scroll;
+      }
+      header h1 {
+        font-size: 2.4em;
+      }
+      header p {
+        font-size: 0.95em;
+      }
+      .service-item {
+        padding: 15px;
+      }
+      .services h2 {
+        font-size: 1.8em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 0.9em;
+        margin: 15px;
+      }
+      .services h2 {
+        font-size: 1.5em;
+      }
+      .service-item h3 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header>
+    <h1>沉夢體驗工作室</h1>
+    <p>「沉夢」象徵深入潛入夢境與現實之間的界線，喚起玩家在體驗中感受真實與幻象的交錯。</p>
+  </header>
+
+  <section class="section services">
+    <h2>我們的服務項目</h2>
+    <div class="service-item">
+      <h3>實境解謎遊戲設計</h3>
+      <p>以沉浸式敘事與互動機制，結合地方文化與空間體驗，讓玩家親身成為故事的一部分。</p>
+    </div>
+    <div class="service-item">
+      <h3>互動網頁與LINE遊戲</h3>
+      <p>運用 Construct 3、Firebase 與 LIFF 打造線上任務系統，結合社群平台形成多層互動。</p>
+    </div>
+    <div class="service-item">
+      <h3>文化策展與藝術整合</h3>
+      <p>將遊戲設計思維融入展覽與教育推廣，轉化為可參與、可體驗、可感動的故事空間。</p>
+    </div>
+  </section>
+
+  <section class="section contact">
+    <h2>聯絡我們</h2>
+    <p>聯絡人：楊先生</p>
+    <p>信箱：XXX@gmail.com</p>
+  </section>
+
+  <footer>
+    © 2025 沉夢體驗工作室 Deep Dream Experience Studio
+  </footer>
+
+  <script>
+    // 動態星星
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 5 + 's';
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
